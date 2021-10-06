@@ -34,8 +34,8 @@
 
     <label for="phrase">Enter a phrase </label><br>
     <input type ="text" id="phrase"  autofocus> <br><br>
-
     <input type="button" onclick="processPhrase()" value="Check the phrase" style="background-color: aqua;"><br><br>
+    <div id="result"></div>
     <div class="text-center">
         <p class="text-danger">Hit the below Image to see Changes</p>
         <img class="rounded" src="horse.jpg" width="200" height="200" id="fimage" onclick=" newImage()"><br><br>
@@ -43,7 +43,7 @@
         <img class="rounded" src="hound.jpg" width="150" height="150" id="secondimage">
     </div>
 </form>
-<div id="result"></div>
+
 
 <script> 
 let correct=0;
@@ -61,6 +61,9 @@ function processPhrase (){
     }else{
         alert("Access denied");
         wrong=wrong+1;
+    }
+    if (wrong == 3){
+        alert("Account Locked");
     }
     resultDiv.innerHTML="Correct count: "+correct+'<br>'+" Worng count: "+wrong;
 }
